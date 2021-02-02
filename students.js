@@ -19,7 +19,36 @@ var students = [
 and an array of objects appropriate for that comparator and it will return a new array 
 which is sorted with the largest object in index 0 and the smallest in the last index*/
 function sortArr(comparator, array) {
-  // your code here
+ var newarr = [];
+for (var c = 0; c < array.length; c++){
+
+
+  var counter = 0;
+  for (var i = 0; i < array.length; i++){
+	if (comparator(array[c], array[i+1]) == true){
+		var counter = counter++;
+}
+}
+if (counter == 5) {
+	newarr[0] = array[c];
+}
+if (counter == 4) {
+	newarr[1] = array[c];
+}
+if (counter == 3) {
+	newarr[2] = array[c];
+}
+if (counter == 2) {
+	newarr[3] = array[c];
+}
+if (counter == 1) {
+	newarr[4] = array[c];
+}
+if (counter == 0) {
+	newarr[5] = array[c];
+}
+}
+	return newarr;
 }
 
 /* A comparator takes two arguments and uses some algorithm to compare them. If the first 
@@ -38,14 +67,34 @@ those 'tied' students is not specified and either can come first*/
 
 /* This compares two students based on their year in school. Sort in descending order.*/
 function yearComparator(student1, student2) {
-  // your code here
+  if (student1.yearInSchool < student2.yearInSchool){
+	return true;
+	} 
+  if(student1.yearInSchool > student2.yearInSchool){
+	return false;
+	}
+  if (student1.yearInSchool == student2.yearInSchool){
+	return true;
 }
+}
+	
 
 /* This compares two students based on their major. It should be case insensitive and 
 makes which are alphabetically earlier in the alphabet are "greater" than ones that 
 come later (from A-Z).*/
 function majorComparator(student1, student2) {
-  // your code here
+ var x = toLowerCase(student1.major);
+ var y = toLowerCase(student2.major);
+ if(x < y){
+	return false;
+}
+ if(x > y){
+	return true;
+}
+ if(x == y){
+	return true;
+}}
+
 }
 
 /* This compares two students based on the club they're in. The ordering from "greatest" 
@@ -53,7 +102,44 @@ to "least" is as follows: improv, cat, art, guitar, (types not otherwise listed)
 It should be case insensitive. If two clubs are of equal type then the student who
 has the higher year in school should be "greater."*/
 function clubComparator(student1, student2) {
-  // your code here
+var student1_value = 0;
+var student2_value = 0;
+  if(student1.club == "improv"){
+student1_value = 4;
+}
+ if(student1.club == "cat"){
+student1_value = 3;
+}
+ if (student1.club == "art"){
+student1_vlaue = 2;
+}
+ if (student1.club == "guitar"){
+student1_value = 1;
+}
+ if(student2.club == "improv"){
+student2_value = 4;
+}
+ if (student2.club == "cat"){
+student2_value = 3;
+}
+ if (student2.club == "art"){
+student2_value = 2; 
+}
+ if (student2.club == "guitar"){
+student2_value = 1;
+}
+if (student1_value > student2_value){
+	return true;
+}
+if (student1_value < student2_value){
+	return false;
+}
+ if (student1_value == student2_value){
+	if (student1.yearInSchool > student2.yearInSchool){
+		return true;}
+	if (student1.yearInSchool < student2.yearInschool){
+		return false;}
+}
 }
 
 /* Your program should output the following to the console.log, including each of the opening and closing 
