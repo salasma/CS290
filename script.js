@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 var app = express();
 
-var port = 3000;
+var port = 4182;
 
 var options = { root: __dirname + '/'}
 
@@ -30,7 +30,7 @@ app.use(function(req, res, next)
 });
 
 
-app.get('/form', function(req, res)
+app.get('/', function(req, res)
 
 {
 
@@ -38,7 +38,7 @@ app.get('/form', function(req, res)
     res.type('text/html');
 
 
-    res.sendFile('form.html', options);
+    res.sendFile('hmtl.html', options);
 
 });
 
